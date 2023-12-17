@@ -1,5 +1,6 @@
 package com.NautS.GameState;
 
+import com.NautS.Audio.JukeBox;
 //import com.NautS.Audio.Jukebox;
 import com.NautS.Main.GameScreen;
 
@@ -18,7 +19,7 @@ public class GameStateManager {
 	
 	public GameStateManager() {
 		
-//		JukeBox.init();
+		JukeBox.init();
 		
 		gameStates = new GameState[NUMGAMESTATES];
 		

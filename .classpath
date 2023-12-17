@@ -7,10 +7,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/TinySound"/>
-	<classpathentry kind="lib" path="C:/Users/Jacob/tinysound-1.1.1/tinysound-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Jacob/tinysound-1.1.1/tinysound-1.1.1-src.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Source/eclipse-workspace/Collectivization/libs/mp3spi1.9.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Source/eclipse-workspace/Collectivization/libs/tritonus_share.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

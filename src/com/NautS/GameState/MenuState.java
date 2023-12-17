@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
+import com.NautS.Audio.JukeBox;
 //import com.NautS.Audio.JukeBox;
 //import com.NautS.Entity.PlayerSave;
 //import com.NautS.Handlers.Keys;
@@ -39,6 +40,8 @@ public class MenuState extends GameState {
 		super(gsm);
 		
 		try {
+			JukeBox.load("/Music/NatAnthem.wav", "natAnthem");
+			JukeBox.load("/SFX/bop.wav", "bop");
 			bg = new Background("/Backgrounds/menuBG.gif");
 			font = new Font("Russian", Font.PLAIN, 48);
 			font2 = new Font("Russian", Font.PLAIN, 15);
@@ -46,6 +49,7 @@ public class MenuState extends GameState {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		init();
 	}
 	
 	public static void setCurrentChoice(int c) {
@@ -54,6 +58,7 @@ public class MenuState extends GameState {
 	}
 	
 	public void init() {
+		JukeBox.play("natAnthem");
 	}
 	
 	public void draw(Graphics2D g) {
@@ -88,7 +93,7 @@ public class MenuState extends GameState {
 	
 	private void select() {
 		if(currentChoice == 0) {
-			Game.stopMusic();
+			JukeBox.stop("natAnthem");
 			gsm.setState(GameStateManager.SIMSTATE);
 		}
 		if(currentChoice == 1) {
@@ -98,18 +103,18 @@ public class MenuState extends GameState {
 	
 	public void keyPressed(int k) {
 		if(k == KeyEvent.VK_ENTER){
-			Game.bop();
+			JukeBox.play("bop");
 			select();
 		}
 		if(k == KeyEvent.VK_S || k == KeyEvent.VK_DOWN || k == KeyEvent.VK_D || k == KeyEvent.VK_RIGHT || k == KeyEvent.VK_A || k == KeyEvent.VK_LEFT || k == KeyEvent.VK_W || k == KeyEvent.VK_UP) {
 			currentChoice++;
-			Game.bop();
+			JukeBox.play("bop");
 			if(currentChoice == options.length){
 				currentChoice = 0;
 			}
 		}
-		if(k== KeyEvent.VK_SPACE) {
-			Game.music();
+		if(k == KeyEvent.VK_SPACE) {
+			JukeBox.play("bop");
 		}
 	}
 	

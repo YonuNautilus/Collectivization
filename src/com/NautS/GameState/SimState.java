@@ -18,9 +18,7 @@ import com.NautS.Main.Game;
 import com.NautS.Main.GameScreen;
 import com.NautS.TileMap.*;
 
-import kuusisto.tinysound.Music;
-import kuusisto.tinysound.TinySound;
-
+import com.NautS.Audio.JukeBox;
 import com.NautS.Entity.*;
 import com.NautS.Entity.State.*;
 
@@ -67,8 +65,6 @@ public class SimState extends GameState {
 	
 	private BufferedImage image;
 	private String[] stateStatsTemp;
-
-	private Music song2;
 	
 	public SimState(GameStateManager gsm) {
 		super(gsm);
@@ -77,10 +73,7 @@ public class SimState extends GameState {
 	
 	public void init() {
 		
-		TinySound.init();
-		song2 = TinySound.loadMusic("/Music/NatAnthemLoop.wav");
-		song2.play(true);
-		song2.loop();
+		JukeBox.load("/Music/NatAnthemLoop.wav", "anthemLoop");
 		
 		bg = new Background("/Map/map.gif");
 		states = new ArrayList<State>();
@@ -111,6 +104,8 @@ public class SimState extends GameState {
 		}
 		
 		makeStats(states.get(currentChoice));
+		
+		JukeBox.loop("anthemLoop");
 	}
 	
 	public void makeStats(State e) {

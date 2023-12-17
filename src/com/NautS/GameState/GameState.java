@@ -2,9 +2,13 @@ package com.NautS.GameState;
 
 import java.awt.Graphics2D;
 
+import com.NautS.Audio.JukeBox;
+
 public abstract class GameState {
 	
 	protected GameStateManager gsm;
+	
+	public JukeBox bgMusic;
 	
 	public GameState(GameStateManager gsm) {
 		this.gsm = gsm;
